@@ -62,28 +62,11 @@ class ProductCard extends StatelessWidget {
           ),
 
           // Картинка товара
-          Image.network(
-            'https://picsum.photos/seed/headphones/600/400',
+          Image.asset(
+            'assets/product.jpg',
             height: 180,
             width: double.infinity,
             fit: BoxFit.cover,
-            // Пока картинка грузится — показываем индикатор
-            loadingBuilder: (context, child, progress) {
-              if (progress == null) return child;
-              return const SizedBox(
-                height: 180,
-                child: Center(child: CircularProgressIndicator()),
-              );
-            },
-            // Если картинка недоступна — показываем заглушку
-            errorBuilder: (context, error, stackTrace) {
-              return const SizedBox(
-                height: 180,
-                child: Center(
-                  child: Icon(Icons.headphones, size: 80, color: Colors.grey),
-                ),
-              );
-            },
           ),
 
           // Описание в Container с отступами
